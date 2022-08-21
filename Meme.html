@@ -1,0 +1,194 @@
+<section data-test="page-section" data-section-theme="bright" class="page-section
+
+      layout-engine-section
+
+    background-width--full-bleed
+
+
+
+
+
+
+    horizontal-alignment--center
+    vertical-alignment--middle
+
+       has-background
+
+
+    bright" data-section-id="61fb83b29a8ceb25afafafdc" data-controller="SectionWrapperController" data-current-styles="{
+&quot;backgroundImage&quot;: {
+&quot;id&quot;: &quot;6253e1dca0850d236f2ba9c9&quot;,
+&quot;recordType&quot;: 2,
+&quot;addedOn&quot;: 1649664476421,
+&quot;updatedOn&quot;: 1655444425526,
+&quot;workflowState&quot;: 1,
+&quot;publishOn&quot;: 1649664476421,
+&quot;authorId&quot;: &quot;59950154d2b85727a3495c20&quot;,
+&quot;systemDataId&quot;: &quot;d9010991-6553-412f-8edd-0ca6d8db2f41&quot;,
+&quot;systemDataVariants&quot;: &quot;1152x660,100w,300w,500w,750w,1000w&quot;,
+&quot;systemDataSourceType&quot;: &quot;GIF&quot;,
+&quot;filename&quot;: &quot;ISLAND-transparent-large.gif&quot;,
+&quot;mediaFocalPoint&quot;: {
+&quot;x&quot;: 0.5,
+&quot;y&quot;: 0.5,
+&quot;source&quot;: 3
+},
+&quot;colorData&quot;: {
+&quot;topLeftAverage&quot;: &quot;ffffff&quot;,
+&quot;topRightAverage&quot;: &quot;ffffff&quot;,
+&quot;bottomLeftAverage&quot;: &quot;ffffff&quot;,
+&quot;bottomRightAverage&quot;: &quot;ffffff&quot;,
+&quot;centerAverage&quot;: &quot;71a454&quot;,
+&quot;suggestedBgColor&quot;: &quot;ffffff&quot;
+},
+&quot;urlId&quot;: &quot;njei622zwkuikp8zhurlp9emga2lp6&quot;,
+&quot;title&quot;: &quot;&quot;,
+&quot;body&quot;: null,
+&quot;likeCount&quot;: 0,
+&quot;commentCount&quot;: 0,
+&quot;publicCommentCount&quot;: 0,
+&quot;commentState&quot;: 2,
+&quot;unsaved&quot;: false,
+&quot;author&quot;: {
+&quot;id&quot;: &quot;59950154d2b85727a3495c20&quot;,
+&quot;displayName&quot;: &quot;Brian Yu&quot;,
+&quot;firstName&quot;: &quot;Brian&quot;,
+&quot;lastName&quot;: &quot;Yu&quot;,
+&quot;avatarId&quot;: &quot;59a4d8a1e6f2e11c9056f461&quot;,
+&quot;websiteUrl&quot;: &quot;http://9gag.com&quot;,
+&quot;bio&quot;: &quot;&quot;,
+&quot;avatarAssetUrl&quot;: &quot;https://static1.squarespace.com/static/images/59a4d8a1e6f2e11c9056f461/100w&quot;
+},
+&quot;assetUrl&quot;: &quot;https://images.squarespace-cdn.com/content/v1/61fb82bacd4ad50f429159a6/d9010991-6553-412f-8edd-0ca6d8db2f41/ISLAND-transparent-large.gif&quot;,
+&quot;contentType&quot;: &quot;image/gif&quot;,
+&quot;items&quot;: [ ],
+&quot;pushedServices&quot;: { },
+&quot;pendingPushedServices&quot;: { },
+&quot;recordTypeLabel&quot;: &quot;image&quot;,
+&quot;originalSize&quot;: &quot;1152x660&quot;
+},
+&quot;imageOverlayOpacity&quot;: 0.0,
+&quot;backgroundWidth&quot;: &quot;background-width--full-bleed&quot;,
+&quot;sectionHeight&quot;: &quot;section-height--custom&quot;,
+&quot;customSectionHeight&quot;: 100,
+&quot;horizontalAlignment&quot;: &quot;horizontal-alignment--center&quot;,
+&quot;verticalAlignment&quot;: &quot;vertical-alignment--middle&quot;,
+&quot;contentWidth&quot;: &quot;content-width--custom&quot;,
+&quot;customContentWidth&quot;: 80,
+&quot;sectionTheme&quot;: &quot;bright&quot;,
+&quot;sectionAnimation&quot;: &quot;none&quot;,
+&quot;backgroundMode&quot;: &quot;image&quot;
+}" data-current-context="{
+&quot;video&quot;: {
+&quot;playbackSpeed&quot;: 0.5,
+&quot;filter&quot;: 1,
+&quot;filterStrength&quot;: 0,
+&quot;zoom&quot;: 0,
+&quot;videoSourceProvider&quot;: &quot;none&quot;
+},
+&quot;backgroundImageId&quot;: null,
+&quot;typeName&quot;: &quot;page&quot;
+}" data-animation="none" style="min-height: 100vh; padding-top: 103.016px;" data-controllers-bound="SectionWrapperController" data-active="true">
+  <div class="section-background">
+
+
+
+
+
+
+
+
+
+<script>
+  "use strict";
+
+  var positionImage = function positionImage(imageEl) {
+    var imageDimensions = imageEl.dataset.imageDimensions.split('x');
+    var originalWidth = imageDimensions[0];
+    var originalHeight = imageDimensions[1];
+    var focalPoint = imageEl.dataset.imageFocalPoint.split(',');
+    var focalPointX = focalPoint[0];
+    var focalPointY = focalPoint[1];
+    var parentNode = imageEl.parentNode;
+
+    var scale = function () {
+      var imageRatio = originalWidth / originalHeight;
+      var parentClientSize = {
+        height: parentNode.clientHeight,
+        width: parentNode.clientWidth
+      };
+      var parentRatio = parentClientSize.width / parentClientSize.height;
+
+      if (imageRatio > parentRatio) {
+        return parentClientSize.height / originalHeight;
+      }
+
+      return parentClientSize.width / originalWidth;
+    }();
+
+    var getRelativeOffset = function getRelativeOffset() {
+      var targetWidth = Math.ceil(originalWidth * scale);
+      var targetHeight = Math.ceil(originalHeight * scale);
+      var parentDimensionWidth = parentNode.offsetWidth;
+      var parentDimensionHeight = parentNode.offsetHeight;
+      var overflowWidth = targetWidth - parentDimensionWidth;
+      var overflowHeight = targetHeight - parentDimensionHeight;
+      var valueX;
+
+      if (overflowWidth === 0) {
+        valueX = focalPointX;
+      } else {
+        valueX = Math.max(Math.min(targetWidth * focalPointX - parentDimensionWidth * 0.5, overflowWidth), 0) / overflowWidth;
+      }
+
+      var valueY;
+
+      if (overflowHeight === 0) {
+        valueY = focalPointY;
+      } else {
+        valueY = Math.max(Math.min(targetHeight * focalPointY - parentDimensionHeight * 0.5, overflowHeight), 0) / overflowHeight;
+      }
+
+      return {
+        valueX: valueX,
+        valueY: valueY
+      };
+    };
+
+    var relativeOffset = getRelativeOffset();
+    var valueX = relativeOffset.valueX;
+    var valueY = relativeOffset.valueY;
+    imageEl.style.objectPosition = "".concat(valueX * 100, "% ").concat(valueY * 100, "%");
+  };
+</script>
+
+
+
+
+  <img alt="" data-src="https://images.squarespace-cdn.com/content/v1/61fb82bacd4ad50f429159a6/d9010991-6553-412f-8edd-0ca6d8db2f41/ISLAND-transparent-large.gif" data-image="https://images.squarespace-cdn.com/content/v1/61fb82bacd4ad50f429159a6/d9010991-6553-412f-8edd-0ca6d8db2f41/ISLAND-transparent-large.gif" data-image-dimensions="1152x660" data-image-focal-point="0.5,0.5" data-load="false" srcset="https://images.squarespace-cdn.com/content/v1/61fb82bacd4ad50f429159a6/d9010991-6553-412f-8edd-0ca6d8db2f41/ISLAND-transparent-large.gif?format=100w 100w,https://images.squarespace-cdn.com/content/v1/61fb82bacd4ad50f429159a6/d9010991-6553-412f-8edd-0ca6d8db2f41/ISLAND-transparent-large.gif?format=300w 300w,https://images.squarespace-cdn.com/content/v1/61fb82bacd4ad50f429159a6/d9010991-6553-412f-8edd-0ca6d8db2f41/ISLAND-transparent-large.gif?format=500w 500w,https://images.squarespace-cdn.com/content/v1/61fb82bacd4ad50f429159a6/d9010991-6553-412f-8edd-0ca6d8db2f41/ISLAND-transparent-large.gif?format=750w 750w,https://images.squarespace-cdn.com/content/v1/61fb82bacd4ad50f429159a6/d9010991-6553-412f-8edd-0ca6d8db2f41/ISLAND-transparent-large.gif?format=1000w 1000w,https://images.squarespace-cdn.com/content/v1/61fb82bacd4ad50f429159a6/d9010991-6553-412f-8edd-0ca6d8db2f41/ISLAND-transparent-large.gif?format=original 1500w" sizes="(max-width: 799px) 200vw, 100vw" onload="positionImage(this); this.classList.add('loaded');" loading="lazy" class="loaded" style="object-position: 50% 50%; width: 100%; height: 100%; object-fit: cover;" data-parent-ratio="1.7" data-image-resolution="original">
+
+
+
+      <div class="section-background-overlay" style="opacity: 0;"></div>
+
+
+  </div>
+  <div class="content-wrapper" style="
+
+
+
+
+          padding-top: calc(100vmax / 10); padding-bottom: calc(100vmax / 10);
+
+
+    ">
+    <div class="content" style="width: 80%;">
+
+
+
+
+      <div class="sqs-layout sqs-grid-12 columns-12 empty" data-type="page-section" data-updated-on="1659705415450" id="page-section-61fb83b29a8ceb25afafafdc"></div>
+    </div>
+  </div>
+
+</section>
